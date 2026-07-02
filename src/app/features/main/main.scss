@@ -14,12 +14,34 @@
   }
 
   &__angel-img {
-     object-fit: cover;
+    object-fit: cover;
     width: 8rem;
     height: 6rem;
-    
+
     &.reverse {
       transform: scaleX(-1);
     }
+  }
+
+  &__guest-letter {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 40rem;
+    align-items: center;
+  }
+
+  &__letter-title {
+    color: var(--text-primary);
+    font-size: 2.4rem;
+    font-family: 600;
+  }
+
+  &__letter-par {
+    color: var(--text-secondary);
+    font-size: 1.6rem;
+    font-family: 600;
+    line-height: 2rem;
   }
 }

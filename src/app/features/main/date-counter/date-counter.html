@@ -1,1 +1,33 @@
-<p>date-counter works!</p>
+<div class="counter-container">
+  <h2 class="counter-title">{{ title() }}</h2>
+
+  @if (!countdown().isExpired) {
+    <div class="counter-grid">
+      
+      <div class="counter-box">
+        <span class="counter-value">{{ countdown().days }}</span>
+        <span class="counter-label">დღე</span>
+      </div>
+
+      <div class="counter-box">
+        <span class="counter-value">{{ countdown().hours }}</span>
+        <span class="counter-label">საათი</span>
+      </div>
+
+      <div class="counter-box">
+        <span class="counter-value">{{ countdown().minutes }}</span>
+        <span class="counter-label">წუთი</span>
+      </div>
+
+      <div class="counter-box">
+        <span class="counter-value">{{ countdown().seconds }}</span>
+        <span class="counter-label">წამი</span>
+      </div>
+
+    </div>
+  } @else {
+    <div class="counter-expired">
+      <p>ქორწილის დღე დადგა! 🎉</p>
+    </div>
+  }
+</div>

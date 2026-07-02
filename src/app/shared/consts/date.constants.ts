@@ -1,0 +1,1 @@
+export const finalDate = new Date(2026, 6, 19);

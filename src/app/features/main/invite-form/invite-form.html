@@ -1,0 +1,35 @@
+<div class="rsvp-container">
+  <h2 class="rsvp-heading">დაგვიდასტურეთ მობრძანება</h2>
+  
+  <form class="rsvp-card">
+    <div class="rsvp-card__form-group">
+      <input type="text" class="rsvp-card__input" placeholder="სახელი" required>
+    </div>
+    
+    <div class="rsvp-card__form-group">
+      <input type="text" class="rsvp-card__input" placeholder="გვარი" required>
+    </div>
+    
+    <div class="rsvp-card__form-group">
+      <input type="tel" class="rsvp-card__input" placeholder="ტელეფონის ნომერი" required>
+    </div>
+
+    <div class="rsvp-card__attendance">
+      <p class="rsvp-card__question">დაესწრებით?</p>
+      
+      <div class="rsvp-card__radio-group">
+        <label class="rsvp-card__radio-label">
+          <input type="radio" name="attendance" value="yes" class="rsvp-card__radio-input" checked>
+          <span class="rsvp-card__radio-button">დიახ</span>
+        </label>
+        
+        <label class="rsvp-card__radio-label">
+          <input type="radio" name="attendance" value="no" class="rsvp-card__radio-input">
+          <span class="rsvp-card__radio-button">ვერ მოვახერხებ</span>
+        </label>
+      </div>
+    </div>
+
+    <button type="submit" class="rsvp-card__submit">დაადასტურება</button>
+  </form>
+</div>

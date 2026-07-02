@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable, OnInit } from '@angular/core';
 import {
   Firestore,
   collection,
@@ -19,23 +19,22 @@ export interface Guest {
 @Injectable({
   providedIn: 'root'
 })
-export class FirestoreService {
-  // 1. Declare the property variable here without assigning it yet
+export class FirestoreService implements OnInit {
   private guestsCollection!: CollectionReference;
+  private firestore = inject(Firestore);
 
-  constructor(private firestore: Firestore) {
-    // 2. Initialize it safely inside the constructor after firestore is injected
+  ngOnInit(): void {
     this.guestsCollection = collection(this.firestore, 'rsvps');
   }
 
-  addGuest(guest: Guest) {
+  public addGuest(guest: Guest) {
     return addDoc(this.guestsCollection, {
       ...guest,
       createdAt: new Date()
     });
   }
 
-  getGuests(): Observable<Guest[]> {
+  public getGuests(): Observable<Guest[]> {
     return collectionData(this.guestsCollection, {
       idField: 'id'
     }) as Observable<Guest[]>;

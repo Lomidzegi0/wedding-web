@@ -1,23 +1,12 @@
 import { Component } from '@angular/core';
 import { FirestoreService } from './services/firestore.service';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  template: `<h1>Wedding Website</h1>`
+  imports: [RouterOutlet],
+  templateUrl: './app.html',
+  styleUrl: './app.scss',
 })
 export class App {
-
-  constructor(private firestore: FirestoreService) {
-    this.testFirestore();
-  }
-
-  async testFirestore() {
-    await this.firestore.addGuest(
-      'Test User',
-      true,
-      2
-    );
-
-    console.log('Guest saved!');
-  }
 }
