@@ -1,17 +1,32 @@
 <div class="rsvp-container">
   <h2 class="rsvp-heading">დაგვიდასტურეთ მობრძანება</h2>
   
-  <form class="rsvp-card">
+  <form class="rsvp-card" [formGroup]="rsvpForm" (ngSubmit)="onSubmit()">
     <div class="rsvp-card__form-group">
-      <input type="text" class="rsvp-card__input" placeholder="სახელი" required>
+      <input 
+        type="text" 
+        class="rsvp-card__input" 
+        formControlName="firstName" 
+        placeholder="სახელი"
+      >
     </div>
     
     <div class="rsvp-card__form-group">
-      <input type="text" class="rsvp-card__input" placeholder="გვარი" required>
+      <input 
+        type="text" 
+        class="rsvp-card__input" 
+        formControlName="lastName" 
+        placeholder="გვარი"
+      >
     </div>
     
     <div class="rsvp-card__form-group">
-      <input type="tel" class="rsvp-card__input" placeholder="ტელეფონის ნომერი" required>
+      <input 
+        type="tel" 
+        class="rsvp-card__input" 
+        formControlName="phoneNumber" 
+        placeholder="ტელეფონის ნომერი"
+      >
     </div>
 
     <div class="rsvp-card__attendance">
@@ -19,12 +34,22 @@
       
       <div class="rsvp-card__radio-group">
         <label class="rsvp-card__radio-label">
-          <input type="radio" name="attendance" value="yes" class="rsvp-card__radio-input" checked>
+          <input 
+            type="radio" 
+            formControlName="attendance" 
+            value="yes" 
+            class="rsvp-card__radio-input"
+          >
           <span class="rsvp-card__radio-button">დიახ</span>
         </label>
         
         <label class="rsvp-card__radio-label">
-          <input type="radio" name="attendance" value="no" class="rsvp-card__radio-input">
+          <input 
+            type="radio" 
+            formControlName="attendance" 
+            value="no" 
+            class="rsvp-card__radio-input"
+          >
           <span class="rsvp-card__radio-button">ვერ მოვახერხებ</span>
         </label>
       </div>

@@ -1,7 +1,7 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 
-const firebaseConfig = {
+export const firebaseConfig = {
   apiKey: "AIzaSyCXFJ9IVFi7pyGX2XsGBzEvI5BOB0kjQtg",
   authDomain: "weddingweb-a51e8.firebaseapp.com",
   projectId: "weddingweb-a51e8",

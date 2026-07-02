@@ -1,0 +1,6 @@
+   @if (alert().visible) {
+      <div class="global-alert global-alert--{{ alert().type }}">
+        <span class="global-alert__message">{{ alert().message }}</span>
+        <button class="global-alert__close" (click)="close()">&times;</button>
+      </div>
+    }

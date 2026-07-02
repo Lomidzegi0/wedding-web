@@ -1,0 +1,58 @@
+.global-alert {
+  position: fixed;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  min-width: 300px;
+  max-width: 450px;
+  padding: 1.5rem 2rem;
+  border-radius: 1.2rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  font-size: 1.5rem;
+  font-weight: 500;
+  animation: slideDownIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+
+  &--success {
+    background-color: #e6f7ed;
+    color: #1e7e34;
+    border: 1px solid rgba(30, 126, 52, 0.2);
+  }
+
+  &--error {
+    background-color: #fde8e8;
+    color: #c81e1e;
+    border: 1px solid rgba(200, 30, 30, 0.2);
+  }
+
+  &__close {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    line-height: 1;
+    cursor: pointer;
+    color: inherit;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+    padding: 0;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+@keyframes slideDownIn {
+  from {
+    transform: translate(-50%, -20px);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+}

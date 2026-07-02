@@ -74,12 +74,12 @@
   }
 
   &__radio-input {
-    display: none; // Hides default browser radio node completely
+    display: none;
 
     &:checked + .rsvp-card__radio-button {
-      background-color: #fffdf6;
+      color: #fffdf6;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
-      color: #583166;
+      background-color: #583166;
       font-weight: 600;
     }
   }
@@ -89,7 +89,7 @@
     padding: 1rem 2.5rem;
     font-size: 1.5rem;
     color: #6b536b;
-    background-color: #fffdf6; // Fallback initial background
+    background-color: #fffdf6;
     opacity: 0.9;
     border-radius: 2.5rem;
     transition: all 0.2s ease-in-out;
@@ -104,7 +104,7 @@
     font-size: 1.8rem;
     font-weight: 500;
     color: #ffffff;
-    background-color: #510d57; // Dark violet main action button
+    background-color: #510d57;
     border: none;
     outline: none;
     border-radius: 3rem;
