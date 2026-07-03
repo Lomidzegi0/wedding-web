@@ -1,0 +1,40 @@
+<div class="overlay-card">
+  <button class="overlay-card__close" (click)="close()">✕</button>
+
+  <div class="overlay-card__body">
+    <h2 class="overlay-card__title">{{ data.title }}</h2>
+    <div class="overlay-card__time">{{ data.time }}</div>
+    <h3 class="overlay-card__subtitle">{{ data.subtitle }}</h3>
+    <p class="overlay-card__description">{{ data.description }}</p>
+
+    <div class="overlay-card__map-container">
+      <iframe
+        [src]="getSafeUrl(data.mapImageUrl)"
+        width="100%"
+        height="100%"
+        style="border: 0"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      >
+      </iframe>
+      <a [href]="data.googleMapsUrl" target="_blank" class="overlay-card__map-badge">
+        <span>Open in Maps</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+          <polyline points="15 3 21 3 21 9"></polyline>
+          <line x1="10" y1="14" x2="21" y2="3"></line>
+        </svg>
+      </a>
+    </div>
+
+    <a [href]="data.googleMapsUrl" target="_blank" class="overlay-card__btn">
+      <span>{{ data.buttonText || 'გახსენით Google Maps-ში' }}</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+        <polyline points="15 3 21 3 21 9"></polyline>
+        <line x1="10" y1="14" x2="21" y2="3"></line>
+      </svg>
+    </a>
+  </div>
+</div>

@@ -2,35 +2,49 @@
   <h2 class="rsvp-heading">დაგვიდასტურეთ მობრძანება</h2>
   
   <form class="rsvp-card" [formGroup]="rsvpForm" (ngSubmit)="onSubmit()">
-    <div class="rsvp-card__form-group">
+    
+    <div class="rsvp-card__form-group" [class.rsvp-card__form-group--error]="rsvpForm.controls.firstName.touched && rsvpForm.controls.firstName.invalid">
       <input 
         type="text" 
         class="rsvp-card__input" 
         formControlName="firstName" 
         placeholder="სახელი"
       >
+      @if (rsvpForm.controls.firstName.touched && rsvpForm.controls.firstName.hasError('required')) {
+        <span class="rsvp-card__error">სახელის შევსება სავალდებულოა</span>
+      }
     </div>
     
-    <div class="rsvp-card__form-group">
+    <div class="rsvp-card__form-group" [class.rsvp-card__form-group--error]="rsvpForm.controls.lastName.touched && rsvpForm.controls.lastName.invalid">
       <input 
         type="text" 
         class="rsvp-card__input" 
         formControlName="lastName" 
         placeholder="გვარი"
       >
+      @if (rsvpForm.controls.lastName.touched && rsvpForm.controls.lastName.hasError('required')) {
+        <span class="rsvp-card__error">გვარის შევსება სავალდებულოა</span>
+      }
     </div>
     
-    <div class="rsvp-card__form-group">
+    <div class="rsvp-card__form-group" [class.rsvp-card__form-group--error]="rsvpForm.controls.phoneNumber.touched && rsvpForm.controls.phoneNumber.invalid">
       <input 
         type="tel" 
         class="rsvp-card__input" 
         formControlName="phoneNumber" 
         placeholder="ტელეფონის ნომერი"
       >
+      @if (rsvpForm.controls.phoneNumber.touched) {
+        @if (rsvpForm.controls.phoneNumber.hasError('required')) {
+          <span class="rsvp-card__error">ტელეფონის ნომერი სავალდებულოა</span>
+        } @else if (rsvpForm.controls.phoneNumber.hasError('pattern')) {
+          <span class="rsvp-card__error">გთხოვთ მიუთითოთ ვალიდური ნომერი</span>
+        }
+      }
     </div>
 
-    <div class="rsvp-card__attendance">
-      <p class="rsvp-card__question">დაესწრებით?</p>
+    <div class="rsvp-card__attendance" [class.rsvp-card__attendance--error]="rsvpForm.controls.attendance.touched && rsvpForm.controls.attendance.invalid">
+      <p class="rsvp-card__question">აპირებთ დასწრებას?</p>
       
       <div class="rsvp-card__radio-group">
         <label class="rsvp-card__radio-label">
@@ -53,6 +67,9 @@
           <span class="rsvp-card__radio-button">ვერ მოვახერხებ</span>
         </label>
       </div>
+      @if (rsvpForm.controls.attendance.touched && rsvpForm.controls.attendance.hasError('required')) {
+        <span class="rsvp-card__error">გთხოვთ აირჩიოთ ერთ-ერთი ვარიანტი</span>
+      }
     </div>
 
     <button type="submit" class="rsvp-card__submit">დაადასტურება</button>

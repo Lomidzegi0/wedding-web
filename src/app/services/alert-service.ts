@@ -12,7 +12,7 @@ export interface AlertState {
   providedIn: 'root'
 })
 export class AlertService {
-  private readonly alertState = signal<AlertState>({
+  public readonly alertState = signal<AlertState>({
     message: '',
     type: 'success',
     visible: false
@@ -37,9 +37,7 @@ export class AlertService {
   }
 
   private showAlert(message: string, type: AlertType, durationMs: number): void {
-    if (this.timeoutId) {
-      clearTimeout(this.timeoutId);
-    }
+    if (this.timeoutId) clearTimeout(this.timeoutId);
 
     this.alertState.set({ message, type, visible: true });
 

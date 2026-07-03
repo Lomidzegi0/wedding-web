@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { FirestoreService } from './services/firestore.service';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { AlertService } from './services/alert-service';
 
 @Component({
   selector: 'app-root',
@@ -9,4 +9,5 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.scss',
 })
 export class App {
+  public alertService = inject(AlertService)
 }

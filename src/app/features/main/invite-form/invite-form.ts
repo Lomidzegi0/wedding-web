@@ -20,7 +20,7 @@ export class InviteForm {
     firstName: ['', [Validators.required]],
     lastName: ['', [Validators.required]],
     phoneNumber: ['', [Validators.required, Validators.pattern(/^[0-9+\s-]{4,20}$/)]],
-    attendance: [false, [Validators.required]],
+    attendance: [null, [Validators.required]],
   });
 
   public onSubmit(): void {
@@ -29,14 +29,14 @@ export class InviteForm {
       const newGuest = {
         name: `${rawForm.firstName} ${rawForm.lastName}`.trim(),
         mobileNumber: rawForm.phoneNumber,
-        attending: rawForm.attendance === true,
+        attending: rawForm.attendance,
       };
 
       this.fireStore
         .addGuest(newGuest)
         .then(() => {
           this.alertService.showSuccess('თქვენი მოწვევა წარმატებით დადასტურდა!');
-          this.rsvpForm.reset({ attendance: true });
+          this.rsvpForm.reset({ attendance: null });
         })
         .catch((error) => {
           console.error(error);

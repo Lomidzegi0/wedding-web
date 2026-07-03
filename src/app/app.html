@@ -1,4 +1,17 @@
 <main class="main">
   <router-outlet />
 </main>
-
+@if (alertService.alertState().visible) {
+  <div class="global-alert-toast" [class]="'global-alert-toast--' + alertService.alertState().type">
+    <div class="global-alert-toast__content">
+      <span class="global-alert-toast__icon-wrapper">
+        <svg class="global-alert-toast__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+      </span>
+      
+      <span>{{ alertService.alertState().message }}</span>
+      <button class="global-alert-toast__close" (click)="alertService.clear()">✕</button>
+    </div>
+  </div>
+}

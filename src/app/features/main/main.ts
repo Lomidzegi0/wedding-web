@@ -1,8 +1,9 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { Hero } from './hero/hero';
 import { DateCounter } from './date-counter/date-counter';
 import { ScheduleMap } from './schedule-map/schedule-map';
 import { InviteForm } from './invite-form/invite-form';
+import { AlertService } from '../../services/alert-service';
 
 @Component({
   selector: 'app-main',
@@ -12,5 +13,5 @@ import { InviteForm } from './invite-form/invite-form';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Main {
-
+  
 }
