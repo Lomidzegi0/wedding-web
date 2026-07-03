@@ -1,0 +1,49 @@
+<div class="guest-list">
+  <h1 class="guest-list__title">სტუმრების სია</h1>
+
+  <div class="guest-list__stats">
+    <div class="stat-card">
+      <span class="stat-card__value">{{ totalGuests() }}</span>
+      <span class="stat-card__label">სულ პასუხი</span>
+    </div>
+    <div class="stat-card stat-card--success">
+      <span class="stat-card__value">{{ attendingGuests() }}</span>
+      <span class="stat-card__label">დამსწრე</span>
+    </div>
+    <div class="stat-card stat-card--danger">
+      <span class="stat-card__value">{{ notAttendingGuests() }}</span>
+      <span class="stat-card__label">არ დაესწრება</span>
+    </div>
+  </div>
+
+  @if (guests().length === 0) {
+    <p class="guest-list__empty">სტუმრები ჯერ არ დარეგისტრირებულა.</p>
+  } @else {
+    <table class="guest-list__table">
+      <thead>
+        <tr>
+          <th>სახელი</th>
+          <th>ტელეფონი</th>
+          <th>დასწრება</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (guest of guests(); track guest.id) {
+          <tr>
+            <td>{{ guest.name }}</td>
+            <td>{{ guest.mobileNumber }}</td>
+            <td>
+              <span
+                class="badge"
+                [class.badge--success]="guest.attending"
+                [class.badge--danger]="!guest.attending"
+              >
+                {{ guest.attending ? 'დიახ' : 'არა' }}
+              </span>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  }
+</div>
