@@ -1,4 +1,5 @@
-<section class="main-wrapper">
+@if ( getStarted() ) {
+  <section class="main-wrapper">
   <app-hero />
   <section class="main-wrapper__angel-display">
     <img
@@ -22,3 +23,9 @@
   <app-schedule-map/>
   <app-invite-form/>
 </section>
+
+} @else {
+ 
+<app-letter-reveal></app-letter-reveal>
+
+}

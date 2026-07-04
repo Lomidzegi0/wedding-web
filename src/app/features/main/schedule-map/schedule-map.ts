@@ -23,9 +23,9 @@ export class ScheduleMap {
       description:
         'მდებარეობს ბოლნისის ცენტრიდან დაახლოებით 4 კმ-ში, ბოლნისის სიონისკენ მიმავალ გზაზე.',
       mapImageUrl:
-        'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3004.70817441586!2d44.56012357656254!3d41.53538467128148!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40416b2ef3a651f1%3A0x6b1db9a2884fb1e6!2sSt.%20Elijah%20Monastery%20on%20Mount%20Elia!5e0!3m2!1sen!2sge!4v1720000000000!5m2!1sen!2sge',
+        'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2991.6363286285787!2d44.540078099999995!3d41.4254125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4043e9798e26084d%3A0x420d775d921a4505!2sSaint%20Peter%20and%20Paul%20monastery!5e0!3m2!1sen!2sge!4v1783104657382!5m2!1sen!2sge" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin',
       googleMapsUrl:
-        'https://maps.google.com/?q=St.+Elijah+Monastery+on+Mount+Elia,+Bolnisi&ftid=0x40416b2ef3a651f1:0x6b1db9a2884fb1e6',
+        'https://www.google.com/maps/place/Saint+Peter+and+Paul+monastery/@41.4254125,44.5400781,17z/data=!3m1!4b1!4m6!3m5!1s0x4043e9798e26084d:0x420d775d921a4505!8m2!3d41.4254125!4d44.5400781!16s%2Fg%2F11r74shm8b!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDYyOS4wIKXMDSoASAFQAw%3D%3D',
     },
     2: {
       title: 'მიღება',
@@ -33,9 +33,9 @@ export class ScheduleMap {
       subtitle: 'Lost Hut (დაკარგული ქოხი)',
       description: 'ოქროყანის მხარე · მთაწმინდის ფერდობი',
       mapImageUrl:
-        'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2979.670570381665!2d44.74571107658742!3d41.68443597126343!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40410dd49c2581f3%3A0x5e12403d353d84b6!2sLost%20Hut!5e0!3m2!1sen!2sge!4v1720000000000!5m2!1sen!2sge',
+        'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2979.5265050132443!2d44.7388441!3d41.687568399999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40440d449c2581fb%3A0x5e12403d353d84b6!2sLost%20Hut!5e0!3m2!1sen!2sge!4v1783104839531!5m2!1sen!2sge" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin',
       googleMapsUrl:
-        'https://maps.google.com/?q=Lost+Hut,+Tbilisi&ftid=0x40410dd49c2581f3:0x5e12403d353d84b6',
+        'https://www.google.com/maps/place/Lost+Hut/@41.6875684,44.7388441,17z/data=!3m1!4b1!4m6!3m5!1s0x40440d449c2581fb:0x5e12403d353d84b6!8m2!3d41.6875684!4d44.7388441!16s%2Fg%2F11h53qgyds!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDYyOS4wIKXMDSoASAFQAw%3D%3D',
     },
   };
   public handleScheduleClick(number: number): void {
