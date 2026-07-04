@@ -11,15 +11,30 @@
   align-items: center;
   justify-self: center;
 }
-
+.footer-wrapper{
+  padding: 0 2.4rem;
+  display: flex;
+  width: 100%;
+  align-items: flex-end;
+  justify-content: space-between;
+  
+  >img{
+    height: 20rem;
+  }
+  >img:nth-child(2){
+    height: 25rem;
+  }
+  @media (max-width: 400px) {
+    padding: 0;
+    gap: 1rem;
+    
+  }
+}
 .main-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-self: center;
-  // width: 70%;
-  // max-width: 100%;
-  // padding: 0 1.5rem;
   box-sizing: border-box;
   background-color: var(--color-bg);
   animation: siteRevealFadeIn 0.9s ease both;

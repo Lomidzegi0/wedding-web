@@ -1,32 +1,28 @@
 @if ( getStarted() ) {
-  <section class="main-wrapper">
+<section class="main-wrapper">
   <app-hero />
   <section class="main-bgwrapper">
-  <section class="main-wrapper__angel-display">
-    <img
-      class="main-wrapper__angel-img reverse"
-      src="assets/images/angel.png"
-      alt="angel"
-      draggable="false"
-    />
-    <img
-      class="main-wrapper__angel-img"
-      src="assets/images/angel.png"
-      alt="angel mirrored"
-      draggable="false"
-    />
+    <section class="main-wrapper__angel-display">
+      <img class="main-wrapper__angel-img reverse" src="assets/images/angel.png" alt="angel" draggable="false" />
+      <img class="main-wrapper__angel-img" src="assets/images/angel.png" alt="angel mirrored" draggable="false" />
+    </section>
+    <app-date-counter />
+    <section class="main-wrapper__guest-letter">
+      <h4 class="main-wrapper__letter-title">ძვირფასო სტუმრებო</h4>
+      <p class="main-wrapper__letter-par">დიდი სიხარულით გეპატიჟებით ჩვენი სიყვარულის ყველაზე განსაკუთრებული დღის
+        აღსანიშნავად. თქვენი დასწრება ამ დღეს კიდევ უფრო ბედნიერს გაგვიხდის!</p>
+    </section>
+    <app-schedule-map />
+    <app-invite-form />
+    <section class="footer-wrapper">
+    <img src="assets/images/wedding-table.png" alt="">
+    <img src="assets/images/winde-pour.png" alt="">
   </section>
-  <app-date-counter/>
-  <section class="main-wrapper__guest-letter">
-    <h4 class="main-wrapper__letter-title">ძვირფასო სტუმრებო</h4>
-    <p class="main-wrapper__letter-par">დიდი სიხარულით გეპატიჟებით ჩვენი სიყვარულის ყველაზე განსაკუთრებული დღის აღსანიშნავად. თქვენი დასწრება ამ დღეს კიდევ უფრო ბედნიერს გაგვიხდის!</p>
   </section>
-  <app-schedule-map/>
-  <app-invite-form/>
-</section>
+  
 </section>
 } @else {
- 
+
 <app-letter-reveal (envelopeOpened)="getStarted.set(true)"></app-letter-reveal>
 
 }
