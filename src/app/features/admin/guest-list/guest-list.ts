@@ -12,7 +12,6 @@ import { Guest } from '../../../shared/interfaces/guest.interface';
 export class GuestList {
   private readonly firestoreService = inject(FirestoreService);
 
-  // Live list of guests, updates automatically whenever Firestore changes
   readonly guests = toSignal(this.firestoreService.getGuests(), {
     initialValue: [] as Guest[],
   });

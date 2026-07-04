@@ -67,7 +67,7 @@
             <input 
               type="radio" 
               formControlName="attendance" 
-              value="yes" 
+              [value]="true" 
               class="rsvp-card__radio-input"
             >
             <span class="rsvp-card__radio-button">დიახ</span>
@@ -77,7 +77,7 @@
             <input 
               type="radio" 
               formControlName="attendance" 
-              value="no" 
+              [value]="false" 
               class="rsvp-card__radio-input"
             >
             <span class="rsvp-card__radio-button">ვერ მოვახერხებ</span>

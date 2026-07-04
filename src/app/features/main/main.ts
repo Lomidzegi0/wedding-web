@@ -3,7 +3,7 @@ import { Hero } from './hero/hero';
 import { DateCounter } from './date-counter/date-counter';
 import { ScheduleMap } from './schedule-map/schedule-map';
 import { InviteForm } from './invite-form/invite-form';
-import { LetterReveal } from "../letter-reveal/letter-reveal";
+import { LetterReveal } from "./letter-reveal/letter-reveal";
 
 @Component({
   selector: 'app-main',
