@@ -1,99 +1,14 @@
 <div class="scene" [class.hide]="sceneHidden()">
-  <div class="envelope" [class.open]="envelopeOpen()">
-    <div class="envelope-body"></div>
-    <div class="flap"></div>
-
-    <div
-      class="seal-wrap"
-      [class.pressed]="pressed()"
-      [class.cracking]="cracking()"
-      role="button"
-      tabindex="0"
-      aria-label="Press the wax seal to open your letter"
-      (click)="openLetter()"
-      (keydown)="onKeydown($event)"
-    >
-      <div class="seal-glow"></div>
-
-      <span class="crumbs">
-        @for (crumb of crumbs(); track $index) {
-          <span class="crumb" [style.--dx]="crumb.dx" [style.--dy]="crumb.dy"></span>
-        }
-      </span>
-
-      <!-- shared gradient definition, referenced by every copy of the seal below -->
-      <svg width="0" height="0" style="position:absolute">
-        <defs>
-          <radialGradient id="waxGrad" cx="38%" cy="28%" r="80%">
-            <stop offset="0%" stop-color="var(--wax-hi)" />
-            <stop offset="55%" stop-color="var(--wax)" />
-            <stop offset="100%" stop-color="var(--wax-dark)" />
-          </radialGradient>
-        </defs>
-      </svg>
-
-      <!-- resting seal: one whole graphic, always visible until cracked -->
-      <svg viewBox="0 0 100 100" class="seal-whole" aria-hidden="true">
-        <circle cx="50" cy="50" r="47" fill="url(#waxGrad)" />
-        <path
-          d="M50 68 C38 58 28 50 28 40 C28 33 34 28 40 28 C45 28 49 31 50 36 C51 31 55 28 60 28 C66 28 72 33 72 40 C72 50 62 58 50 68 Z"
-          fill="none"
-          stroke="rgba(60,15,32,.55)"
-          stroke-width="2.4"
-        />
-        <ellipse cx="34" cy="26" rx="14" ry="7" fill="rgba(255,255,255,.18)" />
-      </svg>
-
-      <!-- crack layers: identical copies of the seal, clipped into complementary jagged halves -->
-      <div class="seal-crack seal-crack-left" aria-hidden="true">
-        <svg viewBox="0 0 100 100">
-          <circle cx="50" cy="50" r="47" fill="url(#waxGrad)" />
-          <path
-            d="M50 68 C38 58 28 50 28 40 C28 33 34 28 40 28 C45 28 49 31 50 36 C51 31 55 28 60 28 C66 28 72 33 72 40 C72 50 62 58 50 68 Z"
-            fill="none"
-            stroke="rgba(60,15,32,.55)"
-            stroke-width="2.4"
-          />
-          <ellipse cx="34" cy="26" rx="14" ry="7" fill="rgba(255,255,255,.18)" />
-        </svg>
-      </div>
-      <div class="seal-crack seal-crack-right" aria-hidden="true">
-        <svg viewBox="0 0 100 100">
-          <circle cx="50" cy="50" r="47" fill="url(#waxGrad)" />
-          <path
-            d="M50 68 C38 58 28 50 28 40 C28 33 34 28 40 28 C45 28 49 31 50 36 C51 31 55 28 60 28 C66 28 72 33 72 40 C72 50 62 58 50 68 Z"
-            fill="none"
-            stroke="rgba(60,15,32,.55)"
-            stroke-width="2.4"
-          />
-          <ellipse cx="34" cy="26" rx="14" ry="7" fill="rgba(255,255,255,.18)" />
-        </svg>
-      </div>
-    </div>
-
-    <div class="hint">დააჭირეთ რომ გახსნათ</div>
-  </div>
-</div>
-
-<div class="letter" [class.rising]="letterRising()" [class.full]="letterFull()">
-  <div class="paper-texture"></div>
-  <div class="content">
-    <!-- Replace this placeholder content with your actual invitation text -->
-    <p class="eyebrow">ჩვენი მოსაწვევი</p>
-    <h1 class="title">თქვენ მოწვეული ხართ</h1>
-    <div class="rule"></div>
-    <div class="letter-body">
-      <p>
-        აქ ჩაწერეთ თქვენი წერილის ტექსტი — ეს არის ადგილი, სადაც შეგიძლიათ
-        მოკლედ აღწეროთ თქვენი ისტორია და მიიწვიოთ სტუმრები თქვენს დღესასწაულზე.
-      </p>
-    </div>
-    <div class="sign-off">
-      <p class="with">სიყვარულით,</p>
-      <p class="name">სახელი &amp; სახელი</p>
-    </div>
-    <div class="cta-row">
-      <a class="cta" href="#invite-form">დეტალების ნახვა</a>
-    </div>
-  </div>
+  <img
+    class="envelope-photo"
+    [class.zoom]="opened()"
+    src="assets/images/envelope-seal.jpg"
+    alt="მოსაწვევის კონვერტი"
+    role="button"
+    tabindex="0"
+    aria-label="დააჭირეთ კონვერტს რომ გახსნათ მოსაწვევი"
+    draggable="false"
+    (click)="openLetter()"
+    (keydown)="onKeydown($event)"
+  />
 </div>
