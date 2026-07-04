@@ -5,6 +5,7 @@ import {
   OnDestroy,
   inject,
   signal,
+  output,
 } from '@angular/core';
 
 interface Crumb {
@@ -28,11 +29,13 @@ export class LetterReveal implements OnDestroy {
   readonly pressed = signal(false);
   readonly cracking = signal(false);
   readonly envelopeOpen = signal(false);
-  readonly letterRising = signal(false);
-  readonly letterFull = signal(false);
   readonly sceneHidden = signal(false);
 
   readonly crumbs = signal<Crumb[]>([]);
+
+  /** Fires once the envelope has finished opening and faded out, so the
+   *  parent can swap in the main site. */
+  readonly envelopeOpened = output<void>();
 
   constructor() {
     // Mirrors the original body{ overflow:hidden } until the letter opens,
@@ -60,14 +63,22 @@ export class LetterReveal implements OnDestroy {
     );
 
     this.timers.push(setTimeout(() => this.envelopeOpen.set(true), 420));
-    this.timers.push(setTimeout(() => this.letterRising.set(true), 500));
-    this.timers.push(setTimeout(() => this.letterFull.set(true), 620));
 
     this.timers.push(
       setTimeout(() => {
         this.sceneHidden.set(true);
+        this.document.body.classList.remove('letter-reveal-locked');
         this.document.body.classList.add('letter-reveal-unsealed');
       }, 900)
+    );
+
+    // Scene fade-out is 0.9s with a 0.35s delay (see .scene.hide in the
+    // stylesheet) starting once sceneHidden flips at 900ms, so the fade
+    // visually finishes around 900 + 350 + 900 = 2150ms.
+    this.timers.push(
+      setTimeout(() => {
+        this.envelopeOpened.emit();
+      }, 2150)
     );
   }
 

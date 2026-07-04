@@ -1,5 +1,37 @@
 @use './app/shared/assets/styles/colors.scss';
 
+@font-face {
+  font-family: 'MCh Neobau';
+  src: url('./assets/fonts/MChNeobau-Light-3394124541.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MCh Neobau';
+  src: url('./assets/fonts/MChNeobau-Regular-3394124541.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MCh Neobau';
+  src: url('./assets/fonts/MChNeobau-Bold-3394124541.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MCh Neobau';
+  src: url('./assets/fonts/MChNeobau-Heavy-3394124541.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -34,14 +66,39 @@ html {
     font-size: 62.5%;
 }
 
+/* Scales all rem-based sizing down proportionally on smaller viewports */
+@media (max-width: 1024px) {
+    html {
+        font-size: 58%;
+    }
+}
+
+@media (max-width: 600px) {
+    html {
+        font-size: 52%;
+    }
+}
+
+@media (max-width: 380px) {
+    html {
+        font-size: 46%;
+    }
+}
+
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
     display: block;
 }
 
+html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
 body {
     line-height: 1;
     font-size: 1.6rem;
+    font-family: 'MCh Neobau', Arial, Helvetica, sans-serif;
 }
 
 ol, ul {

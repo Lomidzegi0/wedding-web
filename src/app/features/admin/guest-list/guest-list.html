@@ -19,31 +19,33 @@
   @if (guests().length === 0) {
     <p class="guest-list__empty">სტუმრები ჯერ არ დარეგისტრირებულა.</p>
   } @else {
-    <table class="guest-list__table">
-      <thead>
-        <tr>
-          <th>სახელი</th>
-          <th>ტელეფონი</th>
-          <th>დასწრება</th>
-        </tr>
-      </thead>
-      <tbody>
-        @for (guest of guests(); track guest.id) {
+    <div class="guest-list__table-wrap">
+      <table class="guest-list__table">
+        <thead>
           <tr>
-            <td>{{ guest.name }}</td>
-            <td>{{ guest.mobileNumber }}</td>
-            <td>
-              <span
-                class="badge"
-                [class.badge--success]="guest.attending"
-                [class.badge--danger]="!guest.attending"
-              >
-                {{ guest.attending ? 'დიახ' : 'არა' }}
-              </span>
-            </td>
+            <th>სახელი</th>
+            <th>ტელეფონი</th>
+            <th>დასწრება</th>
           </tr>
-        }
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          @for (guest of guests(); track guest.id) {
+            <tr>
+              <td>{{ guest.name }}</td>
+              <td>{{ guest.mobileNumber }}</td>
+              <td>
+                <span
+                  class="badge"
+                  [class.badge--success]="guest.attending"
+                  [class.badge--danger]="!guest.attending"
+                >
+                  {{ guest.attending ? 'დიახ' : 'არა' }}
+                </span>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
   }
 </div>

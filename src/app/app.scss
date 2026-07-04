@@ -13,10 +13,18 @@ $toast-close-hover: #ef4444;
   position: fixed;
   top: 1rem;
   right: 1rem;
+  left: 1rem;
   z-index: 1000;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   animation: slideIn 0.3s ease-out;
+  display: flex;
+  justify-content: center;
+
+  @media (min-width: 500px) {
+    left: auto;
+    justify-content: flex-start;
+  }
   
   &--success {
     background-color: #ffffff;
