@@ -8,11 +8,6 @@ import {
   output,
 } from '@angular/core';
 
-interface Crumb {
-  dx: string;
-  dy: string;
-}
-
 @Component({
   selector: 'app-letter-reveal',
   imports: [],
@@ -22,19 +17,13 @@ interface Crumb {
 })
 export class LetterReveal implements OnDestroy {
   private readonly document = inject(DOCUMENT);
-
   private readonly timers: ReturnType<typeof setTimeout>[] = [];
 
   readonly opened = signal(false);
-  readonly pressed = signal(false);
-  readonly cracking = signal(false);
-  readonly envelopeOpen = signal(false);
   readonly sceneHidden = signal(false);
 
-  readonly crumbs = signal<Crumb[]>([]);
-
-  /** Fires once the envelope has finished opening and faded out, so the
-   *  parent can swap in the main site. */
+  /** Fires once the envelope photo has zoomed out and the scene has faded,
+   *  so the parent can mount the main site underneath it. */
   readonly envelopeOpened = output<void>();
 
   constructor() {
@@ -52,33 +41,20 @@ export class LetterReveal implements OnDestroy {
     if (this.opened()) return;
     this.opened.set(true);
 
-    this.pressed.set(true);
-
-    this.timers.push(
-      setTimeout(() => {
-        this.pressed.set(false);
-        this.cracking.set(true);
-        this.spawnCrumbs();
-      }, 140)
-    );
-
-    this.timers.push(setTimeout(() => this.envelopeOpen.set(true), 420));
-
+    // The photo zooms in and fades over 0.5s (see .envelope-photo.zoom in
+    // the stylesheet), then the whole scene fades out shortly after.
     this.timers.push(
       setTimeout(() => {
         this.sceneHidden.set(true);
         this.document.body.classList.remove('letter-reveal-locked');
         this.document.body.classList.add('letter-reveal-unsealed');
-      }, 900)
+      }, 550)
     );
 
-    // Scene fade-out is 0.9s with a 0.35s delay (see .scene.hide in the
-    // stylesheet) starting once sceneHidden flips at 900ms, so the fade
-    // visually finishes around 900 + 350 + 900 = 2150ms.
     this.timers.push(
       setTimeout(() => {
         this.envelopeOpened.emit();
-      }, 2150)
+      }, 1050)
     );
   }
 
@@ -87,19 +63,5 @@ export class LetterReveal implements OnDestroy {
       event.preventDefault();
       this.openLetter();
     }
-  }
-
-  private spawnCrumbs(): void {
-    const n = 10;
-    const crumbs: Crumb[] = [];
-    for (let i = 0; i < n; i++) {
-      const angle = (Math.PI * 2 * i) / n + Math.random() * 0.4;
-      const dist = 40 + Math.random() * 40;
-      crumbs.push({
-        dx: `${Math.cos(angle) * dist}px`,
-        dy: `${Math.sin(angle) * dist}px`,
-      });
-    }
-    this.crumbs.set(crumbs);
   }
 }

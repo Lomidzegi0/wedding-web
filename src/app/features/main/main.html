@@ -1,15 +1,16 @@
 @if ( getStarted() ) {
   <section class="main-wrapper">
   <app-hero />
+  <section class="main-bgwrapper">
   <section class="main-wrapper__angel-display">
     <img
-      class="main-wrapper__angel-img"
+      class="main-wrapper__angel-img reverse"
       src="assets/images/angel.png"
       alt="angel"
       draggable="false"
     />
     <img
-      class="main-wrapper__angel-img reverse"
+      class="main-wrapper__angel-img"
       src="assets/images/angel.png"
       alt="angel mirrored"
       draggable="false"
@@ -23,7 +24,7 @@
   <app-schedule-map/>
   <app-invite-form/>
 </section>
-
+</section>
 } @else {
  
 <app-letter-reveal (envelopeOpened)="getStarted.set(true)"></app-letter-reveal>
